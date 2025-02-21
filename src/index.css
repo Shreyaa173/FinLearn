@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+.home-bg {
+    /* background: linear-gradient(
+        135deg,
+        #FFA6A7 0%,
+        #EAD3B9 25%,
+        #C8C8C8 50%,
+        #F5CFD1 75%,
+        #FF87DB 100%
+      ); */
+
+      /* background: linear-gradient(120deg, #ff9a9e, #fad0c4); */
+
+      background: linear-gradient(
+  120deg,
+  #ff979a 0%,
+  #f1c1b4 25%,
+  #ffd1d1 50%,
+  #e6ad8d 75%,
+  #f08b8b 100%
+);
+}
