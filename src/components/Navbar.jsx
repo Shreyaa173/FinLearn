@@ -33,17 +33,15 @@ const Navbar = ({ logo, navItems = defaultNavItems, onLogin, loginText = "Login"
   const defaultNavItems = [
     {
       label: "Learn",
-      href: "/courses",
       subItems: [
-        { label: "Banking Basics", href: "/courses/banking" },
-        { label: "Savings & Investment", href: "/courses/savings" },
-        { label: "Credit Management", href: "/courses/credit" },
-        { label: "Financial Planning", href: "/courses/planning" },
+        { label: "Banking Basics", href: "/learn/banking" },
+        { label: "Savings & Investment", href: "/learn/savings" },
+        { label: "Credit Management", href: "/learn/credit" },
+        { label: "Financial Planning", href: "/learn/planning" },
       ],
     },
     {
       label: "Tools",
-      href: "/tools",
       subItems: [
         { label: "Budget Calculator", href: "/tools/budget" },
         { label: "Loan Calculator", href: "/tools/loan" },
@@ -52,7 +50,6 @@ const Navbar = ({ logo, navItems = defaultNavItems, onLogin, loginText = "Login"
     },
     {
       label: "Community",
-      href: "/community",
       subItems: [
         { label: "Discussion Forum", href: "/community/forum" },
         { label: "Success Stories", href: "/community/stories" },

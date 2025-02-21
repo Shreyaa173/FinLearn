@@ -3,17 +3,22 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "../src/components/Navbar"; // Import Navbar component
 import Home from "../src/pages/Home";
 import AboutUs from "./pages/AboutUs";
-import BrowseJobs from "../src/pages/jobs/BrowseJobs";
-import PostJob from "../src/pages/jobs/PostJobs";
-import SavedJobs from "../src/pages/jobs/SavedJobs";
-import SuccessStories from "../src/pages/stories/SuccessStories";
-import Interviews from "../src/pages/stories/Interviews";
-import ShareStory from "../src/pages/stories/ShareStory";
 import Contact from "../src/pages/Contact";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import logo from "../src/assets/ConnectULogo.png";
 import Footer from "./components/Footer";
+import Discussion from "../src/pages/Community/Discussion";
+import Find from "../src/pages/Community/Find";
+import Success from "../src/pages/Community/Success";
+import Banking from "../src/pages/Learn/Banking";
+import Financial from "../src/pages/Learn/Financial";
+import Savings from "../src/pages/Learn/Savings";
+import Credit from "../src/pages/Learn/Credit";
+import Budget from "../src/pages/Tools/Budget";
+import Loans from "../src/pages/Tools/Loans";
+import Savings_Tools from "../src/pages/Tools/Savings";
+import Resources from "../src/pages/Resources";
 
 const App = () => {
   // Navigation items configuration (for passing to Navbar)
@@ -22,7 +27,6 @@ const App = () => {
     { label: "About us", href: "/about" },
     {
       label: "Learn",
-      href: "/courses",
       subItems: [
         { label: "Banking Basics", href: "/courses/banking" },
         { label: "Savings & Investment", href: "/courses/savings" },
@@ -32,7 +36,6 @@ const App = () => {
     },
     {
       label: "Tools",
-      href: "/tools",
       subItems: [
         { label: "Budget Calculator", href: "/tools/budget" },
         { label: "Loan Calculator", href: "/tools/loan" },
@@ -41,7 +44,6 @@ const App = () => {
     },
     {
       label: "Community",
-      href: "/community",
       subItems: [
         { label: "Discussion Forum", href: "/community/forum" },
         { label: "Success Stories", href: "/community/stories" },
@@ -70,18 +72,25 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/resources" element={<Resources />} />
 
         
 
-        {/* Sub-routes for "Job Board" */}
-        <Route path="/jobs/browse" element={<BrowseJobs />} />
-        <Route path="/jobs/post" element={<PostJob />} />
-        <Route path="/jobs/saved" element={<SavedJobs />} />
+        {/* Sub-routes for "Learn" */}
+        <Route path="/community/forum" element={<Discussion />} />
+        <Route path="/community/mentors" element={<Find />} />
+        <Route path="/community/stories" element={<Success/>} />
 
         {/* Sub-routes for "Alumni Stories" */}
-        <Route path="/stories/success" element={<SuccessStories />} />
-        <Route path="/stories/interviews" element={<Interviews />} />
-        <Route path="/stories/share" element={<ShareStory />} />
+        <Route path="/courses/banking" element={<Banking />} />
+        <Route path="/courses/credit" element={<Credit />} />
+        <Route path="/courses/planning" element={<Financial />} />
+        <Route path="/courses/savings" element={<Savings />} />
+
+        {/* Sub-routes for "Tools" */}
+        <Route path="/tools/budget" element={<Budget />} />
+        <Route path="/tools/loan" element={<Loans />} />
+        <Route path="/tools/savings" element={<Savings_Tools />} />
       </Routes>
       <Footer />
     </Router>
