@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "../src/components/Navbar"; // Import Navbar component
 import Home from "../src/pages/Home";
@@ -6,7 +6,7 @@ import AboutUs from "./pages/AboutUs";
 import Contact from "../src/pages/Contact";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import logo from "../src/assets/ConnectULogo.png";
+import logo from "../src/assets/Logo.png";
 import Footer from "./components/Footer";
 import Discussion from "../src/pages/Community/Discussion";
 import Find from "../src/pages/Community/Find";
@@ -19,6 +19,7 @@ import Budget from "../src/pages/Tools/Budget";
 import Loans from "../src/pages/Tools/Loans";
 import Savings_Tools from "../src/pages/Tools/Savings";
 import Resources from "../src/pages/Resources";
+import { useTranslation } from 'react-i18next';
 
 const App = () => {
   // Navigation items configuration (for passing to Navbar)
@@ -54,11 +55,12 @@ const App = () => {
   ];
 
   return (
+    <Suspense fallback="loading">
     <Router>
       {/* Navbar is placed here, so it will always be visible */}
       <Navbar
         logo={<img src={logo} 
-        className="w-48" 
+        className="w-10" 
         alt="ConnectU Logo" />}
         navItems={navItems}
         loginText="Login"
@@ -94,6 +96,7 @@ const App = () => {
       </Routes>
       <Footer />
     </Router>
+    </Suspense>
 
   );
 };

@@ -68,7 +68,7 @@ const Navbar = ({ logo, navItems = defaultNavItems, onLogin, loginText = "Login"
               <img className="h-8 w-auto" src={logo} alt="FinLearn Logo" />
             ) : (
               logo
-            )}
+            )} <p className="font-semibold mx-2 text-l">Finlearn</p>
           </div>
 
           <div className="hidden md:flex md:items-center md:justify-center w-2/4">
