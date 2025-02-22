@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "../src/components/Navbar"; // Import Navbar component
 import Home from "../src/pages/Home";
@@ -19,7 +19,6 @@ import Budget from "../src/pages/Tools/Budget";
 import Loans from "../src/pages/Tools/Loans";
 import Savings_Tools from "../src/pages/Tools/Savings";
 import Resources from "../src/pages/Resources";
-import { useTranslation } from 'react-i18next';
 
 const App = () => {
   // Navigation items configuration (for passing to Navbar)
@@ -55,7 +54,6 @@ const App = () => {
   ];
 
   return (
-    <Suspense fallback="loading">
     <Router>
       {/* Navbar is placed here, so it will always be visible */}
       <Navbar
@@ -96,7 +94,6 @@ const App = () => {
       </Routes>
       <Footer />
     </Router>
-    </Suspense>
 
   );
 };
