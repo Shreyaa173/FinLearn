@@ -1,3 +1,5 @@
+import rakesh from "../../assets/rakesh.png";
+import laxmi from "../../assets/laxmi.png";
 const Success = () => {
   const stories = [
     {
@@ -5,7 +7,7 @@ const Success = () => {
       title: "Started saving ₹50 daily, built emergency fund",
       localTitle: "रोज़ाना ₹50 की बचत से आपातकालीन फंड बनाया",
       location: "Gujarat",
-      image: "/api/placeholder/60/60",
+      image: rakesh,
       story:
         "I never thought I could save money from my small shop income. This app helped me start with just ₹50 per day...",
       tags: ["Small Business", "Emergency Fund", "Daily Saving"],
@@ -15,7 +17,7 @@ const Success = () => {
       title: "Got first bank account & started digital payments",
       localTitle: "पहला बैंक खाता खोला और डिजिटल भुगतान शुरू किया",
       location: "Bihar",
-      image: "/api/placeholder/60/60",
+      image: laxmi,
       story:
         "I learned how to use banking apps and now receive payments directly in my account...",
       tags: ["Digital Banking", "Financial Inclusion", "Women Empowerment"],

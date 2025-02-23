@@ -1,6 +1,7 @@
 import { Award, Book, Calculator, Search, Star, Users } from 'lucide-react';
 import React from 'react';
-
+import priya from "../../assets/priya.png";
+import raj from "../../assets/raj.png";
 // Search Bar Component
 const SearchBar = () => (
   <div className="relative">
@@ -110,10 +111,10 @@ const Find = () => {
       rating: 4.9,
       reviewCount: 128,
       availability: "Available for 2 mentees",
-      image: "/api/placeholder/60/60"
+      image: priya
     },
     {
-      name: "Rajesh Kumar",
+      name: "Raj Singh",
       role: "Financial Advisor",
       expertise: ["Family Savings", "Rural Credit", "Insurance"],
       languages: ["Hindi", "English", "Punjabi"],
@@ -121,7 +122,7 @@ const Find = () => {
       rating: 4.8,
       reviewCount: 156,
       availability: "Available for 1 mentee",
-      image: "/api/placeholder/60/60"
+      image: raj
     }
   ];
 
