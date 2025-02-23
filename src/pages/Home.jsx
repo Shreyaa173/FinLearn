@@ -298,7 +298,7 @@ const Home = () => {
               Financial Education for Everyone
             </span>
 
-            <h2 className="text-4xl md:text-6xl font-bold mb-3 h-[calc(1.5em)]">
+            <h2 className="text-4xl md:text-6xl font-bold mb-3">
               <BilingualTypewriterText
                 englishText="Learn. Save. Grow."
                 hindiText="सीखें। बचाएं। बढ़ें।"
