@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { AlertCircle, Check, Eye, EyeOff, UserPlus, X } from "lucide-react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Eye, EyeOff, Check, X, UserPlus, AlertCircle } from "lucide-react";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -98,7 +98,7 @@ const Signup = () => {
             <label
               htmlFor="name"
               className={`block text-sm font-medium transition-all duration-200 ${
-                focused === "name" ? "text-black" : "text-gray-600"
+                focused === "name" ? "text-gray-600" : "text-gray-600"
               }`}
             >
               Name
@@ -112,7 +112,7 @@ const Signup = () => {
               onFocus={() => setFocused("name")}
               onBlur={() => setFocused("")}
               className={`mt-1 w-full px-4 py-2 border rounded-md transition-all duration-200
-                ${focused === "name" ? "border-black ring-1 ring-black" : "border-gray-300"}
+                ${focused === "name" ? "bg-black ring-1 ring-black" : "border-gray-300"}
                 transform hover:scale-[1.01]`}
               required
             />
@@ -122,7 +122,7 @@ const Signup = () => {
             <label
               htmlFor="email"
               className={`block text-sm font-medium transition-all duration-200 ${
-                focused === "email" ? "text-black" : "text-gray-600"
+                focused === "email" ? "text-gray-600" : "text-gray-600"
               }`}
             >
               Email
@@ -136,7 +136,7 @@ const Signup = () => {
               onFocus={() => setFocused("email")}
               onBlur={() => setFocused("")}
               className={`mt-1 w-full px-4 py-2 border rounded-md transition-all duration-200
-                ${focused === "email" ? "border-black ring-1 ring-black" : "border-gray-300"}
+                ${focused === "email" ? "bg-black ring-1 ring-black" : "border-gray-300"}
                 transform hover:scale-[1.01]`}
               required
             />
@@ -146,7 +146,7 @@ const Signup = () => {
             <label
               htmlFor="password"
               className={`block text-sm font-medium transition-all duration-200 ${
-                focused === "password" ? "text-black" : "text-gray-600"
+                focused === "password" ? "text-gray-600" : "text-gray-600"
               }`}
             >
               Password
@@ -161,7 +161,7 @@ const Signup = () => {
                 onFocus={() => setFocused("password")}
                 onBlur={() => setFocused("")}
                 className={`mt-1 w-full px-4 py-2 border rounded-md transition-all duration-200
-                  ${focused === "password" ? "border-black ring-1 ring-black" : "border-gray-300"}
+                  ${focused === "password" ? "bg-black ring-1 ring-black" : "border-gray-300"}
                   transform hover:scale-[1.01]`}
                 required
               />
@@ -180,7 +180,7 @@ const Signup = () => {
             <label
               htmlFor="confirmPassword"
               className={`block text-sm font-medium transition-all duration-200 ${
-                focused === "confirmPassword" ? "text-black" : "text-gray-600"
+                focused === "confirmPassword" ? "text-gray-600" : "text-gray-600"
               }`}
             >
               Confirm Password
@@ -195,7 +195,7 @@ const Signup = () => {
                 onFocus={() => setFocused("confirmPassword")}
                 onBlur={() => setFocused("")}
                 className={`mt-1 w-full px-4 py-2 border rounded-md transition-all duration-200
-                  ${focused === "confirmPassword" ? "border-black ring-1 ring-black" : "border-gray-300"}
+                  ${focused === "confirmPassword" ? "bg-black ring-1 ring-black" : "border-gray-300"}
                   transform hover:scale-[1.01]`}
                 required
               />
@@ -265,7 +265,7 @@ const Signup = () => {
           Already have an account?{" "}
           <Link 
             to="/login" 
-            className="text-black font-medium hover:underline transition-all duration-200"
+            className="text-gray-600 font-medium hover:underline transition-all duration-200"
           >
             Login
           </Link>

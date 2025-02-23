@@ -1,19 +1,20 @@
+import { Calculator, IndianRupee } from 'lucide-react';
 import React, { useState } from 'react';
-import { Calculator, DollarSign, PiggyBank, ArrowRight } from 'lucide-react';
 
 const Budget = () => {
   const [income, setIncome] = useState({
     salary: '',
-    otherIncome: ''
+    farming: '',
+    business: '',
+    other: ''
   });
   
   const [expenses, setExpenses] = useState({
-    housing: '',
-    utilities: '',
     food: '',
-    transport: '',
+    housing: '',
+    education: '',
     healthcare: '',
-    entertainment: '',
+    transport: '',
     other: ''
   });
 
@@ -22,61 +23,60 @@ const Budget = () => {
   const balance = totalIncome - totalExpenses;
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-xl shadow-sm">
+    <div className="max-w-4xl mx-auto p-4 bg-white border-2 border-gray-200 rounded-lg mt-[50px]">
       <div className="flex items-center mb-6">
-        <Calculator className="h-6 w-6 text-blue-600 mr-2" />
-        <h2 className="text-2xl font-semibold">Budget Calculator</h2>
+        <Calculator className="h-6 w-6 mr-2" />
+        <h2 className="text-2xl font-bold">Budget Calculator / बजट कैलकुलेटर</h2>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-6">
         <div>
-          <h3 className="text-lg font-medium mb-4">Monthly Income</h3>
+          <h3 className="text-lg font-bold mb-4">Monthly Income / मासिक आय</h3>
           <div className="space-y-4">
-            <div>
-              <label className="block text-sm text-gray-600 mb-1">Salary</label>
-              <div className="relative">
-                <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-                <input
-                  type="number"
-                  value={income.salary}
-                  onChange={(e) => setIncome({...income, salary: e.target.value})}
-                  className="pl-10 w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none"
-                  placeholder="0.00"
-                />
+            {Object.entries({
+              salary: 'Salary / वेतन',
+              farming: 'Farming / कृषि',
+              business: 'Business / व्यवसाय',
+              other: 'Other / अन्य'
+            }).map(([key, label]) => (
+              <div key={key}>
+                <label className="block text-sm mb-1 font-medium">{label}</label>
+                <div className="relative">
+                  <IndianRupee className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
+                  <input
+                    type="number"
+                    value={income[key]}
+                    onChange={(e) => setIncome({...income, [key]: e.target.value})}
+                    className="pl-10 w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none"
+                    placeholder="0"
+                  />
+                </div>
               </div>
-            </div>
-            <div>
-              <label className="block text-sm text-gray-600 mb-1">Other Income</label>
-              <div className="relative">
-                <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-                <input
-                  type="number"
-                  value={income.otherIncome}
-                  onChange={(e) => setIncome({...income, otherIncome: e.target.value})}
-                  className="pl-10 w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none"
-                  placeholder="0.00"
-                />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
         <div>
-          <h3 className="text-lg font-medium mb-4">Monthly Expenses</h3>
+          <h3 className="text-lg font-bold mb-4">Monthly Expenses / मासिक खर्च</h3>
           <div className="space-y-4">
-            {Object.keys(expenses).map((expense) => (
-              <div key={expense}>
-                <label className="block text-sm text-gray-600 mb-1">
-                  {expense.charAt(0).toUpperCase() + expense.slice(1)}
-                </label>
+            {Object.entries({
+              food: 'Food / भोजन',
+              housing: 'Housing / आवास',
+              education: 'Education / शिक्षा',
+              healthcare: 'Healthcare / स्वास्थ्य',
+              transport: 'Transport / परिवहन',
+              other: 'Other / अन्य'
+            }).map(([key, label]) => (
+              <div key={key}>
+                <label className="block text-sm mb-1 font-medium">{label}</label>
                 <div className="relative">
-                  <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                  <IndianRupee className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
                   <input
                     type="number"
-                    value={expenses[expense]}
-                    onChange={(e) => setExpenses({...expenses, [expense]: e.target.value})}
-                    className="pl-10 w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none"
-                    placeholder="0.00"
+                    value={expenses[key]}
+                    onChange={(e) => setExpenses({...expenses, [key]: e.target.value})}
+                    className="pl-10 w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none"
+                    placeholder="0"
                   />
                 </div>
               </div>
@@ -85,26 +85,23 @@ const Budget = () => {
         </div>
       </div>
 
-      <div className="mt-8 p-4 bg-gray-50 rounded-lg">
+      <div className="mt-8 p-4 border-2 border-gray-200 rounded-lg">
         <div className="grid grid-cols-3 gap-4">
           <div>
-            <p className="text-sm text-gray-600">Total Income</p>
-            <p className="text-lg font-semibold text-green-600">${totalIncome.toFixed(2)}</p>
+            <p className="text-sm font-medium">Total Income / कुल आय</p>
+            <p className="text-lg font-bold">₹{totalIncome.toFixed(2)}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-600">Total Expenses</p>
-            <p className="text-lg font-semibold text-red-600">${totalExpenses.toFixed(2)}</p>
+            <p className="text-sm font-medium">Total Expenses / कुल खर्च</p>
+            <p className="text-lg font-bold">₹{totalExpenses.toFixed(2)}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-600">Balance</p>
-            <p className={`text-lg font-semibold ${balance >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-              ${balance.toFixed(2)}
-            </p>
+            <p className="text-sm font-medium">Balance / शेष</p>
+            <p className="text-lg font-bold">₹{balance.toFixed(2)}</p>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
 export default Budget;

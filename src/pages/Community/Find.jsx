@@ -1,105 +1,155 @@
-import React, { useState } from 'react';
-import { ChevronDown, MessageCircle, Award, Users } from 'lucide-react';
+import { Award, Book, Calculator, Search, Star, Users } from 'lucide-react';
+import React from 'react';
 
-const Find= () => {
-    const mentors = [
-      {
-        name: "Dr. Emily Watson",
-        role: "Senior Software Engineer",
-        company: "Amazon",
-        expertise: ["React", "Node.js", "System Design"],
-        experience: "12 years",
-        rating: 4.9,
-        availability: "Available for 2 mentees",
-        image: "/api/placeholder/60/60"
-      },
-      {
-        name: "Michael Chang",
-        role: "Tech Lead",
-        company: "Meta",
-        expertise: ["Python", "Machine Learning", "Career Guidance"],
-        experience: "8 years",
-        rating: 4.8,
-        availability: "Available for 1 mentee",
-        image: "/api/placeholder/60/60"
-      }
-    ];
-  
-    return (
-      <div className="p-4">
-        {/* Search and Filters */}
-        <div className="mb-6 space-y-3">
-          <input 
-            type="text"
-            placeholder="Search by expertise, name, or company..."
-            className="w-full p-2 border rounded-lg"
-          />
-          <div className="flex gap-2">
-            <select className="border rounded-lg p-2 flex-1">
-              <option>All Expertise</option>
-              <option>Frontend</option>
-              <option>Backend</option>
-              <option>Machine Learning</option>
-            </select>
-            <select className="border rounded-lg p-2 flex-1">
-              <option>All Experience Levels</option>
-              <option>5+ years</option>
-              <option>10+ years</option>
-              <option>15+ years</option>
-            </select>
+// Search Bar Component
+const SearchBar = () => (
+  <div className="relative">
+    <Search className="absolute left-3 top-3 h-5 w-5 text-gray-600" />
+    <input
+      type="text"
+      placeholder="Find a mentor by topic (e.g., Savings, Banking)"
+      className="w-full pl-10 p-3 border-2 border-gray-200 rounded-lg font-medium"
+    />
+  </div>
+);
+
+// Topic Filter Component
+const TopicFilter = () => {
+  const topics = [
+    { icon: Book, name: "Banking", nameHindi: "बैंकिंग" },
+    { icon: Calculator, name: "Savings", nameHindi: "बचत" },
+    { icon: Award, name: "Credit", nameHindi: "क्रेडिट" }
+  ];
+
+  return (
+    <div className="flex gap-2 overflow-x-auto pb-2">
+      {topics.map((topic, index) => (
+        <button
+          key={index}
+          className="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg bg-white min-w-[100px] hover:bg-gray-50"
+        >
+          <topic.icon className="h-6 w-6 mb-1" />
+          <span className="text-sm font-bold">{topic.name}</span>
+          <span className="text-xs">{topic.nameHindi}</span>
+        </button>
+      ))}
+    </div>
+  );
+};
+
+// Mentor Card Component
+const MentorCard = ({ mentor }) => (
+  <div className="border-2 border-gray-200 rounded-lg bg-white">
+    <div className="p-4 border-b-2 border-gray-200">
+      <div className="flex items-center gap-4">
+        <img
+          src={mentor.image}
+          alt={mentor.name}
+          className="w-16 h-16 rounded-full border-2 border-gray-200"
+        />
+        <div>
+          <h3 className="font-bold text-lg">{mentor.name}</h3>
+          <p className="text-sm text-gray-600">रूरल बैंकिंग विशेषज्ञ</p>
+          <div className="flex items-center gap-1 mt-1">
+            <Star className="h-4 w-4" fill="black" />
+            <span className="font-medium">{mentor.rating}</span>
+            <span className="text-sm text-gray-600">({mentor.reviewCount} reviews)</span>
           </div>
         </div>
-  
-        {/* Mentors Grid */}
-        <div className="space-y-6">
-          {mentors.map((mentor, index) => (
-            <div key={index} className="border rounded-lg p-6 hover:shadow-lg transition">
-              <div className="flex items-start gap-4">
-                <img 
-                  src={mentor.image} 
-                  alt={mentor.name} 
-                  className="w-16 h-16 rounded-full"
-                />
-                <div className="flex-1">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h3 className="font-semibold text-xl">{mentor.name}</h3>
-                      <p className="text-gray-600">
-                        {mentor.role} at {mentor.company}
-                      </p>
-                      <p className="text-sm text-gray-500 mt-1">
-                        {mentor.experience} experience • {mentor.rating} ★
-                      </p>
-                    </div>
-                    <span className="text-green-600 text-sm">
-                      {mentor.availability}
-                    </span>
-                  </div>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {mentor.expertise.map((skill, i) => (
-                      <span 
-                        key={i} 
-                        className="bg-gray-100 px-3 py-1 rounded-full text-sm"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-4 flex gap-2">
-                    <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition flex-1">
-                      Request Mentorship
-                    </button>
-                    <button className="border border-blue-500 text-blue-500 px-4 py-2 rounded-lg hover:bg-blue-50 transition">
-                      View Profile
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+      </div>
+    </div>
+
+    <div className="p-4">
+      <div className="mb-4">
+        <h4 className="font-bold mb-2">Expertise • विशेषज्ञता</h4>
+        <div className="flex flex-wrap gap-2">
+          {mentor.expertise.map((skill, i) => (
+            <span
+              key={i}
+              className="px-3 py-1 bg-gray-100 rounded-full text-sm font-medium"
+            >
+              {skill}
+            </span>
           ))}
         </div>
       </div>
-    );
-  };
+
+      <div className="space-y-3">
+        <h4 className="font-bold">Languages • भाषाएं</h4>
+        <div className="flex gap-2">
+          {mentor.languages.map((lang, i) => (
+            <span key={i} className="text-sm">
+              {lang}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-4 space-y-2">
+        <button className="w-full p-3 bg-black text-white rounded-lg font-bold hover:bg-black">
+          <span className="block">Schedule Free Call</span>
+          <span className="block text-sm">मुफ्त कॉल शेड्यूल करें</span>
+        </button>
+        <button className="w-full p-3 border-2 border-gray-200 rounded-lg font-bold hover:bg-gray-50">
+          <span className="block">View Profile</span>
+          <span className="block text-sm">प्रोफ़ाइल देखें</span>
+        </button>
+      </div>
+    </div>
+  </div>
+);
+
+const Find = () => {
+  const mentors = [
+    {
+      name: "Priya Sharma",
+      role: "Rural Banking Expert",
+      expertise: ["Basic Banking", "Savings", "Government Schemes"],
+      languages: ["Hindi", "English", "Marathi"],
+      experience: "8 years",
+      rating: 4.9,
+      reviewCount: 128,
+      availability: "Available for 2 mentees",
+      image: "/api/placeholder/60/60"
+    },
+    {
+      name: "Rajesh Kumar",
+      role: "Financial Advisor",
+      expertise: ["Family Savings", "Rural Credit", "Insurance"],
+      languages: ["Hindi", "English", "Punjabi"],
+      experience: "12 years",
+      rating: 4.8,
+      reviewCount: 156,
+      availability: "Available for 1 mentee",
+      image: "/api/placeholder/60/60"
+    }
+  ];
+
+  return (
+    <div className="container mx-auto p-4 max-w-2xl">
+      {/* Header */}
+      <div className="flex items-center mb-6 border-b-2 border-gray-200 pb-4">
+        <Users className="h-8 w-8 text-gray-600 mr-3" strokeWidth={2.5} />
+        <div>
+          <h1 className="text-2xl font-bold">Find a Financial Guide</h1>
+          <h2 className="text-xl">वित्तीय मार्गदर्शक खोजें</h2>
+        </div>
+      </div>
+
+      {/* Search Section */}
+      <div className="space-y-4 mb-6">
+        <SearchBar />
+        <TopicFilter />
+      </div>
+
+      {/* Mentor Cards */}
+      <div className="space-y-4">
+        {mentors.map((mentor, index) => (
+          <MentorCard key={index} mentor={mentor} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default Find;

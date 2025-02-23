@@ -1,5 +1,5 @@
+import { AlertCircle, CheckCircle, Send } from "lucide-react";
 import React, { useState } from "react";
-import { Send, CheckCircle, AlertCircle } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -47,7 +47,7 @@ const Contact = () => {
             <label
               htmlFor="name"
               className={`block text-sm font-medium transition-all duration-200 ${
-                focused === "name" ? "text-black" : "text-gray-600"
+                focused === "name" ? "text-gray-600" : "text-gray-600"
               }`}
             >
               Name
@@ -62,7 +62,7 @@ const Contact = () => {
               onBlur={() => setFocused("")}
               className={`mt-1 w-full px-4 py-2 border rounded-md transition-all duration-200
                 ${focused === "name" 
-                  ? "border-black ring-1 ring-black" 
+                  ? "border-gray-200 ring-1 ring-black" 
                   : "border-gray-300"
                 }
                 transform hover:scale-[1.01]`}
@@ -74,7 +74,7 @@ const Contact = () => {
             <label
               htmlFor="email"
               className={`block text-sm font-medium transition-all duration-200 ${
-                focused === "email" ? "text-black" : "text-gray-600"
+                focused === "email" ? "text-gray-600" : "text-gray-600"
               }`}
             >
               Email
@@ -89,7 +89,7 @@ const Contact = () => {
               onBlur={() => setFocused("")}
               className={`mt-1 w-full px-4 py-2 border rounded-md transition-all duration-200
                 ${focused === "email" 
-                  ? "border-black ring-1 ring-black" 
+                  ? "border-gray-200 ring-1 ring-black" 
                   : "border-gray-300"
                 }
                 transform hover:scale-[1.01]`}
@@ -101,7 +101,7 @@ const Contact = () => {
             <label
               htmlFor="message"
               className={`block text-sm font-medium transition-all duration-200 ${
-                focused === "message" ? "text-black" : "text-gray-600"
+                focused === "message" ? "text-gray-600" : "text-gray-600"
               }`}
             >
               Message
@@ -115,7 +115,7 @@ const Contact = () => {
               onBlur={() => setFocused("")}
               className={`mt-1 w-full px-4 py-2 border rounded-md transition-all duration-200 h-32 resize-none
                 ${focused === "message" 
-                  ? "border-black ring-1 ring-black" 
+                  ? "border-gray-200 ring-1 ring-black" 
                   : "border-gray-300"
                 }
                 transform hover:scale-[1.01]`}
@@ -129,8 +129,8 @@ const Contact = () => {
             className={`w-full relative py-3 px-6 rounded-full font-medium text-white
               transform transition-all duration-200
               ${status === "loading" || status === "success"
-                ? "bg-black cursor-not-allowed"
-                : "bg-black hover:scale-[1.02] hover:shadow-lg active:scale-95"
+                ? "border-gray-200 cursor-not-allowed"
+                : "border-gray-200 hover:scale-[1.02] hover:shadow-lg active:scale-95"
               }
               ${isFormEmpty ? "opacity-50" : "opacity-100"}
             `}

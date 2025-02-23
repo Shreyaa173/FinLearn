@@ -1,6 +1,6 @@
+import { ChevronDown, Menu, X } from "lucide-react";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const NavLink = ({ to, children, className = "" }) => (
   <Link
@@ -90,7 +90,7 @@ const Navbar = ({ logo, navItems = defaultNavItems, onLogin, loginText = "Login"
           <div className="flex items-center justify-end w-1/4">
             <Link
               to="/login"
-              className="hidden md:block bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-colors duration-200"
+              className="hidden md:block bg-black text-white px-6 py-2 rounded-full hover:bg-black transition-colors duration-200"
             >
               {loginText}
             </Link>
@@ -138,7 +138,7 @@ const Navbar = ({ logo, navItems = defaultNavItems, onLogin, loginText = "Login"
           ))}
           <Link
             to="/login"
-            className="block w-full bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-colors duration-200 mt-4 text-center"
+            className="block w-full bg-black text-white px-6 py-2 rounded-full hover:bg-black transition-colors duration-200 mt-4 text-center"
           >
             {loginText}
           </Link>

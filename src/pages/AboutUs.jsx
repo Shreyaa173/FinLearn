@@ -1,13 +1,11 @@
+import {
+    BookOpen,
+    Calculator,
+    ChevronDown,
+    Users
+} from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  BookOpen,
-  Target,
-  Users,
-  ChevronDown,
-  Calculator,
-} from "lucide-react";
-import backgroundImage from "../assets/about-bg.jpg";
 import backgroundImage1 from "../assets/about.png";
 
 const AboutUs = () => {
@@ -61,7 +59,7 @@ const AboutUs = () => {
         <div className="absolute inset-0 bg-black/10 backdrop-blur-sm" />
         <div className="relative z-10 text-center p-8 max-w-4xl mx-auto">
           <div className="flex justify-center mb-6">
-            <Calculator className="w-16 h-16 text-black" />
+            <Calculator className="w-16 h-16 text-gray-600" />
           </div>
           <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-gray-800 to-black bg-clip-text text-transparent transition-transform duration-500 hover:scale-105">
             Welcome to FinLearn
@@ -105,21 +103,21 @@ const AboutUs = () => {
 
               {/* Key Principles Card */}
               <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-8 rounded-2xl shadow-[0_4px_20px_-2px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-all duration-300">
-                <h3 className="text-2xl font-bold mb-6 text-black">
+                <h3 className="text-2xl font-bold mb-6 text-gray-600">
                   Key Principles
                 </h3>
                 <ul className="space-y-6">
                   <li className="flex items-start gap-4 group">
                     <div className="w-2 h-2 mt-2.5 bg-black rounded-full transform transition-all duration-300 group-hover:scale-150" />
                     <p className="text-gray-600">
-                      <strong className="text-black">Accessibility:</strong>{" "}
+                      <strong className="text-gray-600">Accessibility:</strong>{" "}
                       Simple language and mobile-first learning
                     </p>
                   </li>
                   <li className="flex items-start gap-4 group">
                     <div className="w-2 h-2 mt-2.5 bg-black rounded-full transform transition-all duration-300 group-hover:scale-150" />
                     <p className="text-gray-600">
-                      <strong className="text-black">
+                      <strong className="text-gray-600">
                         Practical Learning:
                       </strong>{" "}
                       Real-world scenarios and hands-on tools
@@ -128,7 +126,7 @@ const AboutUs = () => {
                   <li className="flex items-start gap-4 group">
                     <div className="w-2 h-2 mt-2.5 bg-black rounded-full transform transition-all duration-300 group-hover:scale-150" />
                     <p className="text-gray-600">
-                      <strong className="text-black">
+                      <strong className="text-gray-600">
                         Community Support:
                       </strong>{" "}
                       Peer learning and expert guidance
@@ -141,7 +139,7 @@ const AboutUs = () => {
             <div className="space-y-10">
               {/* What We Offer Card */}
               <div className="bg-white p-8 rounded-2xl shadow-[0_4px_20px_-2px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transform hover:scale-102 transition-all duration-300">
-                <h3 className="text-2xl font-bold mb-8 text-black">
+                <h3 className="text-2xl font-bold mb-8 text-gray-600">
                   What We Offer
                 </h3>
                 <ul className="space-y-8">
@@ -150,11 +148,11 @@ const AboutUs = () => {
                       key={index}
                       className="group flex items-start gap-6 p-4 rounded-xl hover:bg-gray-50 transition-all duration-300"
                     >
-                      <div className="text-black transform transition-all duration-300 group-hover:scale-110">
+                      <div className="text-gray-600 transform transition-all duration-300 group-hover:scale-110">
                         {feature.icon}
                       </div>
                       <div>
-                        <h4 className="text-lg font-medium text-black mb-2">
+                        <h4 className="text-lg font-medium text-gray-600 mb-2">
                           {feature.title}
                         </h4>
                         <p className="text-gray-600">{feature.description}</p>
@@ -168,7 +166,7 @@ const AboutUs = () => {
 
           {/* Getting Started Card */}
           <div className="w-full bg-gradient-to-r from-gray-50 to-gray-100 p-8 mt-6 rounded-2xl shadow-[0_4px_20px_-2px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-all duration-300">
-            <h3 className="text-2xl font-bold mb-8 text-black">
+            <h3 className="text-2xl font-bold mb-8 text-gray-600">
               Start Your Financial Journey
             </h3>
             <ul className="space-y-8">
@@ -177,7 +175,7 @@ const AboutUs = () => {
                   1
                 </div>
                 <div>
-                  <p className="font-medium text-lg text-black mb-1">
+                  <p className="font-medium text-lg text-gray-600 mb-1">
                     Create Your Profile
                   </p>
                   <p className="text-gray-600">
@@ -192,7 +190,7 @@ const AboutUs = () => {
                   2
                 </div>
                 <div>
-                  <p className="font-medium text-lg text-black mb-1">
+                  <p className="font-medium text-lg text-gray-600 mb-1">
                     Start Learning
                   </p>
                   <p className="text-gray-600">
@@ -207,7 +205,7 @@ const AboutUs = () => {
                   3
                 </div>
                 <div>
-                  <p className="font-medium text-lg text-black mb-1">
+                  <p className="font-medium text-lg text-gray-600 mb-1">
                     Use Financial Tools
                   </p>
                   <p className="text-gray-600">
@@ -222,7 +220,7 @@ const AboutUs = () => {
                   4
                 </div>
                 <div>
-                  <p className="font-medium text-lg text-black mb-1">
+                  <p className="font-medium text-lg text-gray-600 mb-1">
                     Join the Community
                   </p>
                   <p className="text-gray-600">

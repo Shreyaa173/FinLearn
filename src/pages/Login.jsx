@@ -1,6 +1,6 @@
+import { AlertCircle, Check, Eye, EyeOff, LogIn } from "lucide-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Eye, EyeOff, LogIn, Check, AlertCircle } from "lucide-react";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -43,7 +43,7 @@ const Login = () => {
             <label
               htmlFor="email"
               className={`block text-sm font-medium transition-all duration-200 ${
-                focused === "email" ? "text-black" : "text-gray-600"
+                focused === "email" ? "text-gray-600" : "text-gray-600"
               }`}
             >
               Email
@@ -57,7 +57,7 @@ const Login = () => {
               onFocus={() => setFocused("email")}
               onBlur={() => setFocused("")}
               className={`mt-1 w-full px-4 py-2 border rounded-md transition-all duration-200
-                ${focused === "email" ? "border-black ring-1 ring-black" : "border-gray-300"}
+                ${focused === "email" ? "bg-black ring-1 ring-black" : "border-gray-300"}
                 transform hover:scale-[1.01]`}
               required
             />
@@ -68,14 +68,14 @@ const Login = () => {
               <label
                 htmlFor="password"
                 className={`block text-sm font-medium transition-all duration-200 ${
-                  focused === "password" ? "text-black" : "text-gray-600"
+                  focused === "password" ? "text-gray-600" : "text-gray-600"
                 }`}
               >
                 Password
               </label>
               <Link
                 to="/forgot-password"
-                className="text-sm text-gray-600 hover:text-black transition-colors duration-200"
+                className="text-sm text-gray-600 hover:text-gray-600 transition-colors duration-200"
               >
                 Forgot Password?
               </Link>
@@ -90,7 +90,7 @@ const Login = () => {
                 onFocus={() => setFocused("password")}
                 onBlur={() => setFocused("")}
                 className={`mt-1 w-full px-4 py-2 border rounded-md transition-all duration-200
-                  ${focused === "password" ? "border-black ring-1 ring-black" : "border-gray-300"}
+                  ${focused === "password" ? "bg-black ring-1 ring-black" : "border-gray-300"}
                   transform hover:scale-[1.01]`}
                 required
               />
@@ -110,7 +110,7 @@ const Login = () => {
               id="remember"
               checked={rememberMe}
               onChange={(e) => setRememberMe(e.target.checked)}
-              className="w-4 h-4 border-gray-300 rounded text-black focus:ring-black"
+              className="w-4 h-4 border-gray-300 rounded text-gray-600 focus:ring-black"
             />
             <label htmlFor="remember" className="ml-2 text-sm text-gray-600">
               Remember me
@@ -176,7 +176,7 @@ const Login = () => {
           Don't have an account?{" "}
           <Link 
             to="/signup" 
-            className="text-black font-medium hover:underline transition-all duration-200"
+            className="text-gray-600 font-medium hover:underline transition-all duration-200"
           >
             Sign Up
           </Link>

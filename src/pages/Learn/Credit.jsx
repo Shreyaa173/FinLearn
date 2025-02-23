@@ -1,58 +1,78 @@
-import React from "react";
-import {
-  ChevronRight,
-  PiggyBank,
-  CreditCard,
-  Calculator,
-  Book,
-} from "lucide-react";
-
 // Custom Card Component to replace shadcn/ui Card
-const CustomCard = ({ title, children, className = "" }) => {
+import { Calculator } from 'lucide-react';
+import React from 'react';
+
+// Bilingual Card Component
+const EducationCard = ({ title, titleHindi, children, className = '' }) => {
   return (
-    <div
-      className={`bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-200 ${className}`}
-    >
-      <div className="p-5 border-b border-gray-100">
-        <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+    <div className={`border-2 border-gray-200 rounded-lg bg-white mb-4 ${className}`}>
+      <div className="p-4 border-b-2 border-gray-200">
+        <h3 className="text-l font-bold text-gray-600">{title}</h3>
+        <h4 className="text-md font-medium text-gray-700 mt-1">{titleHindi}</h4>
       </div>
-      <div className="p-5">{children}</div>
+      <div className="p-4">
+        {children}
+      </div>
     </div>
   );
 };
 
+// Bilingual Learn More Button
+const LearnMoreButton = () => (
+  <button 
+    className="w-full mt-4 p-3 bg-black text-white rounded font-bold hover:bg-black border-2 border-gray-200"
+  >
+    <span className="block">Start Learning →</span>
+    <span className="block text-sm">शुरू करें →</span>
+  </button>
+);
+
 const Credit = () => {
-  const creditFeatures = [
+  const lessons = [
     {
-      title: "Credit Score Monitoring",
-      description: "Track your credit score and receive monthly updates",
+      title: "Understanding Credit",
+      titleHindi: "क्रेडिट को समझें",
+      description: "Learn what credit is and how it affects your financial life",
+      descriptionHindi: "जानें कि क्रेडिट क्या है और यह आपके वित्तीय जीवन को कैसे प्रभावित करता है"
     },
     {
-      title: "Credit Cards",
-      description:
-        "Compare and apply for credit cards that match your lifestyle",
+      title: "Building Good Credit",
+      titleHindi: "अच्छा क्रेडिट बनाएं",
+      description: "Simple ways to build and maintain good credit over time",
+      descriptionHindi: "समय के साथ अच्छा क्रेडिट बनाने और बनाए रखने के सरल तरीके"
     },
     {
-      title: "Credit Report Analysis",
-      description: "Get detailed insights into your credit report",
-    },
+      title: "Using Credit Wisely",
+      titleHindi: "क्रेडिट का बुद्धिमानी से उपयोग",
+      description: "Learn when to use credit and how to avoid common mistakes",
+      descriptionHindi: "जानें कि क्रेडिट का उपयोग कब करें और आम गलतियों से कैसे बचें"
+    }
   ];
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
-      <div className="flex items-center mb-8">
-        <CreditCard className="h-8 w-8 text-purple-600 mr-3" />
-        <h1 className="text-3xl font-bold text-gray-900">Credit Management</h1>
+    <div className="p-4 max-w-6xl mx-auto">
+        <div className="flex items-center mb-6 border-b-2 border-gray-200 pb-4">
+          <Calculator className="h-8 w-8 text-gray-600 mr-3" strokeWidth={2.5} />
+          <div>
+            <h1 className="text-2xl font-bold">Money Planning</h1>
+            <h2 className="text-xl">पैसों की योजना</h2>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {lessons.map((lesson, index) => (
+            <EducationCard 
+              key={index} 
+              title={lesson.title} 
+              titleHindi={lesson.titleHindi}
+            >
+              <p className="text-gray-600 text-md mb-2">{lesson.description}</p>
+              <p className="text-gray-700 text-md mb-2">{lesson.descriptionHindi}</p>
+              <LearnMoreButton />
+            </EducationCard>
+          ))}
+        </div>
       </div>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {creditFeatures.map((feature, index) => (
-          <CustomCard key={index} title={feature.title}>
-            <p className="text-gray-600">{feature.description}</p>
-          </CustomCard>
-        ))}
-      </div>
-    </div>
   );
 };
-
-export default Credit;
+ export default Credit;

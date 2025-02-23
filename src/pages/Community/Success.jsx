@@ -1,59 +1,60 @@
-import React, { useState } from 'react';
-import { ChevronDown, MessageCircle, Award, Users } from 'lucide-react';
-
 const Success = () => {
-    const stories = [
-      {
-        name: "Alex Johnson",
-        title: "From Marketing to Software Engineer",
-        company: "Google",
-        image: "/api/placeholder/60/60",
-        story: "After 6 months of dedicated learning and mentorship, I successfully transitioned into tech...",
-        tags: ["Career Switch", "Software Engineering", "Success"]
-      },
-      {
-        name: "Maria Garcia",
-        title: "Landed My Dream Job in Data Science",
-        company: "Microsoft",
-        image: "/api/placeholder/60/60",
-        story: "With the support of this community and great mentors, I went from zero coding knowledge to...",
-        tags: ["Data Science", "Job Success", "Learning"]
-      }
-    ];
-  
-    return (
-      <div className="p-4">
-        {/* Filter Options */}
+  const stories = [
+    {
+      name: "Rajesh Patel",
+      title: "Started saving ₹50 daily, built emergency fund",
+      localTitle: "रोज़ाना ₹50 की बचत से आपातकालीन फंड बनाया",
+      location: "Gujarat",
+      image: "/api/placeholder/60/60",
+      story:
+        "I never thought I could save money from my small shop income. This app helped me start with just ₹50 per day...",
+      tags: ["Small Business", "Emergency Fund", "Daily Saving"],
+    },
+    {
+      name: "Lakshmi Devi",
+      title: "Got first bank account & started digital payments",
+      localTitle: "पहला बैंक खाता खोला और डिजिटल भुगतान शुरू किया",
+      location: "Bihar",
+      image: "/api/placeholder/60/60",
+      story:
+        "I learned how to use banking apps and now receive payments directly in my account...",
+      tags: ["Digital Banking", "Financial Inclusion", "Women Empowerment"],
+    },
+  ];
+
+  return (
+    <div className="flex justify-center items-center min-h-screen">
+      <div className="w-[75vw] p-4">
         <div className="mb-6">
-          <select className="w-full p-2 border rounded-lg">
-            <option>All Categories</option>
-            <option>Career Switch</option>
-            <option>Job Success</option>
-            <option>Learning Journey</option>
+          <select className="w-full p-3 border-2 border-gray-200 rounded-lg">
+            <option>All Stories / सभी कहानियां</option>
+            <option>Savings / बचत</option>
+            <option>Digital Banking / डिजिटल बैंकिंग</option>
+            <option>Small Business / छोटा व्यवसाय</option>
           </select>
         </div>
-  
-        {/* Stories Grid */}
+
         <div className="space-y-6">
           {stories.map((story, index) => (
-            <div key={index} className="border rounded-lg p-6 hover:shadow-lg transition">
+            <div key={index} className="border-2 border-gray-200 rounded-lg p-4">
               <div className="flex items-start gap-4">
-                <img 
-                  src={story.image} 
-                  alt={story.name} 
-                  className="w-16 h-16 rounded-full"
+                <img
+                  src={story.image}
+                  alt={story.name}
+                  className="w-16 h-16 rounded-full border-2 border-gray-200"
                 />
                 <div>
-                  <h3 className="font-semibold text-xl">{story.title}</h3>
-                  <p className="text-gray-600">
-                    {story.name} • {story.company}
+                  <h3 className="font-bold text-lg">{story.localTitle}</h3>
+                  <h4 className="text-md">{story.title}</h4>
+                  <p className="text-gray-700">
+                    {story.name} • {story.location}
                   </p>
                   <p className="mt-3 text-gray-700">{story.story}</p>
-                  <div className="mt-4 flex gap-2">
+                  <div className="mt-4 flex flex-wrap gap-2">
                     {story.tags.map((tag, i) => (
-                      <span 
-                        key={i} 
-                        className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm"
+                      <span
+                        key={i}
+                        className="border-2 border-gray-200 px-3 py-1 rounded-lg text-sm"
                       >
                         {tag}
                       </span>
@@ -64,13 +65,13 @@ const Success = () => {
             </div>
           ))}
         </div>
-  
-        {/* Share Story Button */}
-        <button className="mt-6 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
-          Share Your Success Story
+
+        <button className="mt-6 w-full bg-black text-white py-3 rounded-lg hover:bg-gray-900 transition">
+          Share Your Story / अपनी कहानी साझा करें
         </button>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
-  export default Success;
+export default Success;

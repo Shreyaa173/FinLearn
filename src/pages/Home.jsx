@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { ArrowRight, Users, Briefcase, BookOpen, Star } from "lucide-react";
+import { ArrowRight, BookOpen, Briefcase, Star, Users } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
 const TypewriterText = ({ text, speed = 100 }) => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -140,10 +140,10 @@ const Home = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-black text-white px-8 py-3 rounded-full flex items-center justify-center gap-2 hover:bg-gray-800 transition-all duration-200 hover:scale-105">
+              <button className="bg-black text-white px-8 py-3 rounded-full flex items-center justify-center gap-2 hover:bg-black transition-all duration-200 hover:scale-105">
                 Start Learning <ArrowRight className="w-5 h-5" />
               </button>
-              <button className="border-2 border-black px-8 py-3 rounded-full hover:bg-black hover:text-white transition-all duration-200 hover:scale-105">
+              <button className="border-2 border-gray-200 px-8 py-3 rounded-full hover:bg-black hover:text-white transition-all duration-200 hover:scale-105">
                 View Courses
               </button>
             </div>
